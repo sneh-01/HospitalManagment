@@ -19,8 +19,12 @@ from django.contrib.auth.views import LoginView,LogoutView
 #-------------FOR ADMIN RELATED URLS
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('',views.home_view,name=''),
-
+    
+    path('',views.index_view,name=''),
+    path('appointment',views.home_view,name='appointment'),
+    path('find_nearest_hospital', views.find_nearest_hospital),
+    # path('hospital/<hospital_name>', views.hospital),
+    path('hospital/<str:hospital_name>/', views.hospital, name='hospital'),
 
     path('aboutus', views.aboutus_view),
     path('contactus', views.contactus_view),
